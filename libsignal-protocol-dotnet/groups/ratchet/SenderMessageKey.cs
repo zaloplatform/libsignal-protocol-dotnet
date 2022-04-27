@@ -34,7 +34,7 @@ namespace libsignal.groups.ratchet
 
         public SenderMessageKey(uint iteration, byte[] seed)
         {
-            byte[] derivative = new HKDFv3().deriveSecrets(seed, Encoding.UTF8.GetBytes("WhisperGroup"), 48);
+            byte[] derivative = new HKDFv3().deriveSecrets(seed, Encoding.UTF8.GetBytes("ZaloGroup"), 48);
             byte[][] parts = ByteUtil.split(derivative, 16, 32);
 
             this.iteration = iteration;

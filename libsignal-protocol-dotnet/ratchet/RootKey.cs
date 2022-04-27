@@ -42,7 +42,7 @@ namespace libsignal.ratchet
         public Pair<RootKey, ChainKey> createChain(ECPublicKey theirRatchetKey, ECKeyPair ourRatchetKey)
         {
             byte[] sharedSecret = Curve.calculateAgreement(theirRatchetKey, ourRatchetKey.getPrivateKey());
-            byte[] derivedSecretBytes = kdf.deriveSecrets(sharedSecret, key, Encoding.UTF8.GetBytes("WhisperRatchet"), DerivedRootSecrets.SIZE);
+            byte[] derivedSecretBytes = kdf.deriveSecrets(sharedSecret, key, Encoding.UTF8.GetBytes("ZaloRatchet"), DerivedRootSecrets.SIZE);
             DerivedRootSecrets derivedSecrets = new DerivedRootSecrets(derivedSecretBytes);
 
             RootKey newRootKey = new RootKey(kdf, derivedSecrets.getRootKey());

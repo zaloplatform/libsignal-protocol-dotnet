@@ -165,7 +165,7 @@ namespace libsignal.ratchet
         private static DerivedKeys calculateDerivedKeys(byte[] masterSecret)
         {
             HKDF kdf = new HKDFv3();
-            byte[] derivedSecretBytes = kdf.deriveSecrets(masterSecret, Encoding.UTF8.GetBytes("WhisperText"), 64);
+            byte[] derivedSecretBytes = kdf.deriveSecrets(masterSecret, Encoding.UTF8.GetBytes("ZaloText"), 64);
             byte[][] derivedSecrets = ByteUtil.split(derivedSecretBytes, 32, 32);
 
             return new DerivedKeys(new RootKey(kdf, derivedSecrets[0]),

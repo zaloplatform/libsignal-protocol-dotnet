@@ -58,7 +58,7 @@ namespace libsignal.ratchet
         public MessageKeys getMessageKeys()
         {
             byte[] inputKeyMaterial = getBaseMaterial(MESSAGE_KEY_SEED);
-            byte[] keyMaterialBytes = kdf.deriveSecrets(inputKeyMaterial, Encoding.UTF8.GetBytes("WhisperMessageKeys"), DerivedMessageSecrets.SIZE);
+            byte[] keyMaterialBytes = kdf.deriveSecrets(inputKeyMaterial, Encoding.UTF8.GetBytes("ZaloMessageKeys"), DerivedMessageSecrets.SIZE);
             DerivedMessageSecrets keyMaterial = new DerivedMessageSecrets(keyMaterialBytes);
 
             return new MessageKeys(keyMaterial.getCipherKey(), keyMaterial.getMacKey(), keyMaterial.getIv(), index);
